@@ -1,0 +1,21 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply bg-ink text-chalk font-sans antialiased;
+  }
+  a {
+    @apply text-lime no-underline;
+  }
+  a:hover {
+    @apply text-limebright;
+  }
+  ::placeholder {
+    @apply text-dim;
+  }
+  .tnum {
+    font-variant-numeric: tabular-nums;
+  }
+}
