@@ -20,12 +20,12 @@ The email field is decorative — only the password is checked.
 
 Any of these work. Pick one:
 
-| Host | Why | Steps |
-| --- | --- | --- |
-| **Vercel** (recommended) | Made by the Next.js team, free tier, zero config | Push the folder to a GitHub repo → vercel.com → New Project → import repo → add env var `ADMIN_PASSWORD` → Deploy |
-| **Netlify** | Free tier, similar flow | New site from Git → it detects Next.js → add env var `ADMIN_PASSWORD` |
-| **Cloudflare Pages** | Free, fast globally | Connect repo → framework preset "Next.js" → add env var |
-| **Your own VPS** (Hostinger, DigitalOcean, Contabo) | Full control, ~$5/mo | `npm run build` then `npm start` behind nginx, keep alive with `pm2` |
+| Host                                                | Why                                              | Steps                                                                                                             |
+| --------------------------------------------------- | ------------------------------------------------ | ----------------------------------------------------------------------------------------------------------------- |
+| **Vercel** (recommended)                            | Made by the Next.js team, free tier, zero config | Push the folder to a GitHub repo → vercel.com → New Project → import repo → add env var `ADMIN_PASSWORD` → Deploy |
+| **Netlify**                                         | Free tier, similar flow                          | New site from Git → it detects Next.js → add env var `ADMIN_PASSWORD`                                             |
+| **Cloudflare Pages**                                | Free, fast globally                              | Connect repo → framework preset "Next.js" → add env var                                                           |
+| **Your own VPS** (Hostinger, DigitalOcean, Contabo) | Full control, ~$5/mo                             | `npm run build` then `npm start` behind nginx, keep alive with `pm2`                                              |
 
 On every host, set the environment variable `ADMIN_PASSWORD` to your real password. Never commit `.env.local`.
 
@@ -33,15 +33,15 @@ On every host, set the environment variable `ADMIN_PASSWORD` to your real passwo
 
 - **Login** — one admin password, stored server-side in an env var, session in an httpOnly cookie. Players never log in.
 - **Live board** — courts with 4 slots (doubles), a running timer, score entry per side, and three queue rules you can switch mid-session:
-  - *First in, first out* — next four in line, seats 1 & 2 vs 3 & 4
-  - *Level-balanced* — fills from the deepest single level; otherwise takes the four closest levels and splits them evenly across the net
-  - *Manual* — drag names from the waiting list onto any slot; tap a filled slot to send that player back
+  - _First in, first out_ — next four in line, seats 1 & 2 vs 3 & 4
+  - _Level-balanced_ — fills from the deepest single level; otherwise takes the four closest levels and splits them evenly across the net
+  - _Manual_ — drag names from the waiting list onto any slot; tap a filled slot to send that player back
 - **Players** — add with level (Low / Mid / High), division (Men / Women) and type (Member / Guest); check people in and out.
 - **Courts** — add or remove courts, adjust the hourly rate.
 - **Stats** — games, wins, losses, win rate, most-played-with partner, amount owed.
-- **Payment** — `(courts × hours × rate) + (shuttles × price)`, minus guest fees collected per game, split across checked-in members only. Guests pay per game and stay out of the split.
+- **Payment** — `(courts × hours × rate) + (shuttles × price)`, minus guest fees collected per game, split across checked-in members only, plus a per-member **clan fund** add-on (default ₱20). Guests pay per game and stay out of both the split and the fund. Each person has a **Mark paid** button with a running "collected of expected" total, and closing the session warns you about anyone who hasn't paid.
 - **History** — this session's finished games, plus an archive of every closed session with its own games and payment total.
-- **Sessions** — stats and payment are per session. When the night ends (or when you open the app on a new day and the previous session still has games), NextRally prompts you to close it out: the session is filed with its games and money, tonight's record folds into each player's lifetime totals, and the board starts clean. The Stats screen toggles between *Tonight* and *All time*.
+- **Sessions** — stats and payment are per session. When the night ends (or when you open the app on a new day and the previous session still has games), NextRally prompts you to close it out: the session is filed with its games and money, tonight's record folds into each player's lifetime totals, and the board starts clean. The Stats screen toggles between _Tonight_ and _All time_.
 
 ## Data storage
 
